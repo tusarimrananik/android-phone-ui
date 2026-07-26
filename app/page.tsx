@@ -140,9 +140,9 @@ export default function AndroidPhone() {
         <button className="power-button" onClick={() => { setLocked(true); setActiveApp(null); setDrawer(false); }} aria-label="Lock phone" />
         <div className="screen">
           <button className="status-bar" onClick={() => !locked && setQuickSettings(true)} aria-label="Open quick settings">
-            <span>{now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
-            <span><Signal size={13} fill="currentColor" /><Wifi size={14} /><BatteryFull size={16} />86%</span>
-          </button>
+                      <span>{now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                      <span className="android-status-icons"><i className="android-signal" aria-label="Cellular signal"><b /><b /><b /><b /></i><i className="android-wifi" aria-label="Wi-Fi"><b /></i><i className="android-battery" aria-label="Battery 86%"><b /></i><em>86%</em></span>
+                    </button>
 
           {locked ? (
             <button className="lock-screen" onClick={() => setLocked(false)} aria-label="Unlock phone">
