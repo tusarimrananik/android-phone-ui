@@ -146,20 +146,22 @@ export default function AndroidPhone() {
 
           {locked ? (
             <button className="lock-screen" onClick={() => setLocked(false)} aria-label="Unlock phone">
-              <LockKeyhole size={22} />
-              <time>{now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</time>
-              <p>{now.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" })}</p>
-              <span>Tap anywhere to unlock</span>
-              <div className="lock-shortcuts"><i><Phone size={19} /></i><i><Camera size={19} /></i></div>
-            </button>
+                          <div className="lock-topline"><LockKeyhole size={18} /><span>Pixel UI</span><span className="lock-weather"><Sun size={15} /> 24°</span></div>
+                          <div className="lock-time-wrap"><time>{now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</time><p>{now.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" })}</p></div>
+                          <div className="lock-notification"><Bell size={18} /><span><strong>Android UI is ready</strong><small>Tap to explore your phone</small></span><ChevronLeft size={17} className="notification-chevron" /></div>
+                          <span className="unlock-hint">Swipe up to unlock</span>
+                          <div className="lock-shortcuts"><i><Phone size={19} /></i><i><Camera size={19} /></i></div>
+                        </button>
           ) : (
             <>
               <div className="home-screen">
-                <div className="at-a-glance"><strong>{now.toLocaleDateString([], { weekday: "long" })}</strong><span>{now.toLocaleDateString([], { month: "short", day: "numeric" })} · 24°</span></div>
-                <button className="search-pill" onClick={() => openApp("browser")}><span>G</span><span>Search</span><Mic size={17} /><Camera size={17} /></button>
-                <div className="home-apps">{apps.slice(5, 9).map((app) => <AppIcon key={app.id} app={app} onOpen={openApp} />)}</div>
-                <div className="dock">{apps.slice(0, 4).map((app) => <AppIcon key={app.id} app={app} onOpen={openApp} />)}</div>
-              </div>
+                              <div className="pixel-header"><div className="pixel-date"><strong>{now.toLocaleDateString([], { weekday: "long" })}</strong><span>{now.toLocaleDateString([], { month: "short", day: "numeric" })}</span></div><button className="profile-chip" aria-label="Open profile"><UserRound size={18} /></button></div>
+                              <div className="pixel-widget"><div><span className="widget-eyebrow">At a glance</span><strong>{now.toLocaleDateString([], { weekday: "long" })}</strong><span>{now.toLocaleDateString([], { month: "short", day: "numeric" })} · Clear skies</span></div><div className="widget-weather"><Sun size={27} /><strong>24°</strong><span>Feels like 23°</span></div></div>
+                              <button className="search-pill" onClick={() => openApp("browser")}><span>G</span><span>Search your phone</span><Mic size={17} /><Camera size={17} /></button>
+                              <div className="home-apps">{apps.slice(5, 9).map((app) => <AppIcon key={app.id} app={app} onOpen={openApp} />)}</div>
+                              <div className="home-page-indicator"><i /><i className="active" /><i /></div>
+                              <div className="dock">{apps.slice(0, 4).map((app) => <AppIcon key={app.id} app={app} onOpen={openApp} />)}</div>
+                            </div>
 
               {drawer && <div className="app-drawer"><div className="drawer-handle" /><div className="drawer-search"><Search size={18} /><input aria-label="Search apps" placeholder="Search your apps" /></div><div className="all-apps">{apps.map((app) => <AppIcon key={app.id} app={app} onOpen={openApp} />)}</div></div>}
 
