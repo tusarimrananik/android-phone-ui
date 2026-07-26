@@ -141,7 +141,7 @@ export default function AndroidPhone() {
         <div className="screen">
           <button className="status-bar" onClick={() => !locked && setQuickSettings(true)} aria-label="Open quick settings">
                       <span>{now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
-                      <span className="android-status-icons"><i className="android-signal" aria-label="Cellular signal"><b /><b /><b /><b /></i><i className="android-wifi" aria-label="Wi-Fi"><b /></i><i className="android-battery" aria-label="Battery 86%"><b /></i><em>86%</em></span>
+                      <span className="android-status-icons"><img src="/material-icons/signal_cellular_4_bar.svg" alt="Cellular signal" /><img src="/material-icons/wifi.svg" alt="Wi-Fi" /><span className="android-battery"><img src="/material-icons/battery_full.svg" alt="Battery 86%" /><b /></span><em>86%</em></span>
                     </button>
 
           {locked ? (
